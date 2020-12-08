@@ -1,0 +1,21 @@
+echo compiling  "./bin/main.o main.cpp"
+g++ -c -o ./bin/main.o main.cpp
+echo compiling  "./src/EventHandling.cpp"
+g++ -c -o ./bin/EventHandling.o ./src/EventHandling.cpp
+echo compiling  "./src/Player.cpp"
+g++ -c -o ./bin/Player.o ./src/Player.cpp
+echo compiling  "./src/StringProcessing.cpp"
+g++ -c -o ./bin/StringProcessing.o ./src/StringProcessing.cpp
+echo compiling  "./src/Socket.cpp"
+g++ -c -o ./bin/Socket.o ./src/Socket.cpp
+echo compiling "./src/Database.cpp"
+g++ -c -o ./bin/Database.o ./src/Database.cpp
+echo compiling "./src/DataInput.cpp"
+g++ -c -o ./bin/DataInput.o ./src/DataInput.cpp
+echo compiling "./src/ConfigParse.cpp"
+g++ -c -o ./bin/ConfigParse.o ./src/ConfigParse.cpp
+echo Linking project..
+g++ -pthread -o elo ./bin/ConfigParse.o ./bin/main.o ./bin/DataInput.o ./bin/Database.o ./bin/sqlite3.o ./bin/EventHandling.o ./bin/Player.o ./bin/StringProcessing.o ./bin/Socket.o -ldl
+echo "Done."
+
+cp -f ./elo ~/Desktop/jka/jka1/elo
